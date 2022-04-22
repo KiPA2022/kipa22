@@ -12,3 +12,8 @@ The baselines in this folder will be gradually improved, and the existing codes 
 - SimpleITK 2.0.2
 - Pytorch 1.7+
 - batchgenerators 0.23
+
+## Third parties' frameworks
+- [nnUNet](https://github.com/MIC-DKFZ/nnUNet)
+- [V-Net](https://github.com/Project-MONAI/MONAI/blob/dev/monai/networks/nets/vnet.py)
+- [DeepLab](https://github.com/jfzhang95/pytorch-deeplab-xception)
