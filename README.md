@@ -4,7 +4,7 @@ We provide the evaluation code and a baseline depository for a easy start of our
 
 Please feel free to raise any issues if you have questions about the challenge, e.g., dataset, evaluation measures, ranking scheme and so on.
 
-<p align="center"><img width="70%" src="figs/intro.png" /></p>
+<p align="center"><img width="100%" src="figs/intro.png" /></p>
 
 ## EVALUATION
 The `EVALUATION` folder provides the official implementation of the [evaluation metrics](https://kipa22.grand-challenge.org/evaluation-details/) used in the KiPA22 Challenge, including:
