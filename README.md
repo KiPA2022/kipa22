@@ -9,8 +9,6 @@ Please feel free to raise any issues if you have questions about the challenge, 
 ## EVALUATION
 The `EVALUATION` folder provides the official implementation of the [evaluation metrics](https://kipa22.grand-challenge.org/evaluation-details/) used in the KiPA22 Challenge, including:
 
-`DSC` (Dice Similarity Coefficient) is used to evaluate the area-based overlap index. 
-
-`HD` (Hausdorff Distance) is used to compare the segmentation quality of outliers.
-
-`AVD` (Average Hausdorff Distance) is used to evaluate the coincidence of the surface for stable and less sensitive to outliers.
+- `DSC` (Dice Similarity Coefficient) is used to evaluate the area-based overlap index. 
+- `HD` (Hausdorff Distance) is used to compare the segmentation quality of outliers.
+- `AVD` (Average Hausdorff Distance) is used to evaluate the coincidence of the surface for stable and less sensitive to outliers.
