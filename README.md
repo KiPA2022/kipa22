@@ -1,6 +1,5 @@
-<p align="center"><img width="100%" src="figs/logo1.png" /></p>
-
 # Official repository of MICCAI 2022 Challenge: [KiPA22](https://kipa22.grand-challenge.org/).
+<p align="center"><img width="100%" src="figs/logo1.png" /></p>
 
 We provide the evaluation code and a [BASELINE depository](https://github.com/KiPA2022/kipa22/tree/main/BASELINES) for a simple start of our challenge. You can use the code in [`EVALUATION`](https://github.com/KiPA2022/kipa22/tree/main/EVALUATION) to evaluate the `DSC`, `HD`, and `AVD` of your result, and use the code in `BASELINES` to strat your KiPA22.
 
