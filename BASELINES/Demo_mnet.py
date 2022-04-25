@@ -134,7 +134,7 @@ if __name__ == '__main__':
                       crop_shape=crop_shape,
                       model_name=model_name,
                       train_dir=train_dir,
-                      checkpoint_dir=train_dir)
+                      checkpoint_dir=checkpoint_dir)
     predict(net_S, pred_dir, test_dir + '/image', model_name)
     HDAVD(model_name, n_classes, pred_dir, test_dir + '/label')
     DSC(model_name, n_classes, pred_dir, test_dir + '/label')
