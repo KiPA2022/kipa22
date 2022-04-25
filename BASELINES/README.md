@@ -5,6 +5,8 @@ This is a depository for the officially implemented baseline models and the conn
 ## Officially implemented baselines
 The baselines in this folder will be gradually improved, and the existing codes include:
 - [DenseBiasNet](https://github.com/YutingHe-list/DenseBiasNet-pytorch) and its variants [[paper](https://www.sciencedirect.com/science/article/abs/pii/S1361841520300864)]
+- [MNet](https://github.com/zfdong-code/MNet)
+- 3D U-Net[[paper](https://link.springer.com/chapter/10.1007/978-3-319-46723-8_49)]
 - ...
 
 ## Enviroment and requirement
