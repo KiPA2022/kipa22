@@ -16,5 +16,7 @@ More details are available in the papers ([He et al., 2021](https://www.scienced
 
 ## BASELINES
 The `BASELINES` folder provides some basic models of official implementation and the connections of some excellent third-party libraries which will help the participants start their training easily. The baselines in this folder will be gradually improved, and the existing codes include:
-- The [code](https://github.com/YutingHe-list/DenseBiasNet-pytorch) of [DenseBiasNet and its variants](https://www.sciencedirect.com/science/article/abs/pii/S1361841520300864)
+- [DenseBiasNet and its variants](https://github.com/YutingHe-list/DenseBiasNet-pytorch)[[paper](https://www.sciencedirect.com/science/article/abs/pii/S1361841520300864)]
+- [MNet](https://github.com/zfdong-code/MNet)
+- 3D U-Net[[paper](https://link.springer.com/chapter/10.1007/978-3-319-46723-8_49)]
 - ...
