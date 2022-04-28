@@ -39,7 +39,7 @@ def Getcontour(img):
 def HausdorffDistance(predict, label, index=1):
     predict = (predict == index).astype(np.uint8)
     label = (label == index).astype(np.uint8)
-    predict_sum  =  predict.sum()
+    predict_sum = predict.sum()
     label_sum = label.sum()
     if predict_sum != 0 and label_sum != 0 :
         mask1 = sitk.GetImageFromArray(predict,isVector=False)
@@ -124,13 +124,20 @@ def HDAVD(model_name, n_classes, pred_dir, gt_dir):
 
         groundtruth = sitk.GetArrayFromImage(groundtruth)
         groundtruth = to_categorical(groundtruth, num_classes=n_classes)
-
         for c in range(n_classes):
             predict_suf = Getcontour(predict[c])
             label_suf = Getcontour(groundtruth[c])
             HD_AVD = HausdorffDistance(predict_suf, label_suf)
             if HD_AVD[0] == 'FN' or HD_AVD[0] == 'FP' or HD_AVD[0] == 'TN':
-                predict_suf = Getcontour(np.ones_like(predict[c]))
+                predict_suf = np.zeros_like(predict[c])
+                predict_suf[0, :, :] = 1.
+                predict_suf[-1, :, :] = 1.
+                predict_suf[:, 0, :] = 1.
+                predict_suf[:, -1, :] = 1.
+                predict_suf[:, :, 0] = 1.
+                predict_suf[:, :, -1] = 1.
+                print("The " + str(c) + "th structure fails to be segmented, so the image boundary is used as the evaluation position of this structure.")
+
                 hau[c, i], hauAve[c, i] = HausdorffDistance(predict_suf, label_suf)
             else:
                 hau[c, i], hauAve[c, i] = HD_AVD[0], HD_AVD[1]
