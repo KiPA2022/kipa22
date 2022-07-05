@@ -11,7 +11,7 @@ The baselines in this folder will be gradually improved, and the existing codes 
 
 The performance of the baselines on the open test set of KiPA22.
 
-|Baselines    |Kidney |Kidney |Kidney |Tumor  |Tumor  |Tumor  |Artery |Artery |Artery |Vein |Vein |Vein |
+|Baselines    |Kidney DSC |Kidney HD |Kidney AVD |Tumor DSC  |Tumor HD  |Tumor AVD  |Artery DSC |Artery HD |Artery AVD |Vein DSC |Vein HD |Vein AVD |
 |:------------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:---:|:---:|:---:|
 |DenseBiasNet |94.6   |37.23  |1.28   |79.3   |41.36  |6.50   |84.5   |42.63  |1.95   |76.1 |54.17|3.36 |
 |MNet         |90.6   |67.02  |3.50   |65.1   |95.56  |15.40  |78.2   |74.15  |4.04   |73.5 |65.80|4.76 |
