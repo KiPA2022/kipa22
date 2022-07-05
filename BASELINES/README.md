@@ -9,6 +9,11 @@ The baselines in this folder will be gradually improved, and the existing codes 
 - [3D U-Net](https://github.com/KiPA2022/kipa22/blob/main/BASELINES/models/UNet3D.py)[[paper](https://link.springer.com/chapter/10.1007/978-3-319-46723-8_49)]
 - ...
 
+The performance of the baselines on the open test set of KiPA22.
+|   Baselines | Kidney   | Kidney    |  Kidney |  Tumor |   Tumor |  Tumor |   Artery |   Artery | Artery |Vein|Vein|Vein|
+|--------:|--------:|------:|--------:|-------------:|--------------:|---------------:|-----------------:|--------------:|
+|DenseBiasNet | 1X       | False |    1.28 |          |          |           6.50 |             | |1.95 |          | | 3.36|
+
 ## Enviroment and requirement
 - python 3.7+
 - SimpleITK 2.0.2
