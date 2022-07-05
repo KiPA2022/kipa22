@@ -13,7 +13,9 @@ The performance of the baselines on the open test set of KiPA22.
 
 |Baselines| Kidney  | Kidney |  Kidney |  Tumor |   Tumor |  Tumor |   Artery |   Artery | Artery | Vein | Vein |Vein|
 |--------:|--------:|-------:|--------:|-------:|--------:|-------:|---------:|---------:|-------:|-----:|---------:|---------:|
-|DenseBiasNet | 1X       | False |    1.28 |          |          |           6.50 |             | |1.95 |          | | 3.36|
+|DenseBiasNet| 94.6| 37.23 |    1.28 |         79.3 |     41.36     |           6.50 |           84.5  |42.63 |1.95 |       76.1   |54.17 | 3.36|
+|MNet|90.6 |67.02  |    3.50|       65.1   |    95.56      |           15.40 |  78.2           | 74.15|4.04 |  73.5        |65.80 | 4.76|
+|3D U-Net| |  |    1.28 |          |          |           6.50 |             | |1.95 |          | | 3.36|
 
 ## Enviroment and requirement
 - python 3.7+
