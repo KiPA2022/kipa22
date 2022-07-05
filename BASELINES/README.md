@@ -11,8 +11,8 @@ The baselines in this folder will be gradually improved, and the existing codes 
 
 The performance of the baselines on the open test set of KiPA22.
 
-|   Baselines | Kidney   | Kidney    |  Kidney |  Tumor |   Tumor |  Tumor |   Artery |   Artery | Artery |Vein|Vein|Vein|
-|--------:|--------:|------:|--------:|-------------:|--------------:|---------------:|-----------------:|--------------:|
+|Baselines| Kidney  | Kidney |  Kidney |  Tumor |   Tumor |  Tumor |   Artery |   Artery | Artery | Vein | Vein |Vein|
+|--------:|--------:|-------:|--------:|-------:|--------:|-------:|---------:|---------:|-------:|-----:|---------:|---------:|
 |DenseBiasNet | 1X       | False |    1.28 |          |          |           6.50 |             | |1.95 |          | | 3.36|
 
 ## Enviroment and requirement
