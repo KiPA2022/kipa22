@@ -13,8 +13,8 @@ The performance of the baselines on the open test set of KiPA22.
 
 |Baselines    |Kidney DSC |Kidney HD |Kidney AVD |Tumor DSC  |Tumor HD  |Tumor AVD  |Artery DSC |Artery HD |Artery AVD |Vein DSC |Vein HD |Vein AVD |
 |:------------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:---:|:---:|:---:|
-|DenseBiasNet |94.6   |37.23  |1.28   |79.3   |41.36  |6.50   |84.5   |42.63  |1.95   |76.1 |54.17|3.36 |
-|MNet         |90.6   |67.02  |3.50   |65.1   |95.56  |15.40  |78.2   |74.15  |4.04   |73.5 |65.80|4.76 |
+|DenseBiasNet |94.6   |23.89  |0.79   |79.3   |27.97  |4.33   |84.5   |26.67  |1.31   |76.1 |34.60|2.08 |
+|MNet         |90.6   |44.03  |2.16   |65.1   |61.05  |10.23  |78.2   |47.79  |2.71   |73.5 |42.60|3.06 |
 |3D U-Net     |91.7   |18.44  |0.75   |66.6   |24.02  |4.45   |71.9   |22.17  |1.10   |60.9 |22.26|3.37 |
 
 ## Enviroment and requirement
