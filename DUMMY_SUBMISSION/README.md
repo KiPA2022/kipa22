@@ -4,11 +4,11 @@ In closed test, we require the participants to build a docker image of their alg
 
 We will pull your docker image and run it on our server, get your inference results and then evaluate them using 12 metrics (as same as the open test). 
 
-This dummy submission shows how to build a docker image of a baseline model (DenseBiasNet). The `Dockerfile`, `predict.py` and `requirements.txt` are added to the directory, other files are copied from `../BASELINES/`. To get familiar with docker, you can download this directory, and run the command `$ docker build -t dummy .` to get a dummy docker image.  
+This dummy submission shows how to build a docker image of a baseline model (DenseBiasNet). The `Dockerfile`, `predict.py` and `requirements.txt` are added to the directory, other files are all copied from `../BASELINES/`. To get familiar with docker, you can download this directory, and run the command `$ docker build -t dummy .` to get a dummy docker image.  
 
 ## Testing environment
 
-* nVidia GeForce RTX 3090 (**your package should be compatible with CUDA capability of sm_86**)
+* nVidia GeForce RTX 3090 (**your packages should be compatible with CUDA capability of sm_86**)
 * CUDA 11.1
 * 24GB GPU memory
 
@@ -46,7 +46,7 @@ for some Windows users this might doesn't work, use these 2 commands instead:
 `$ gzip TAR_FILENAME.tar`  
 Check if it can be loaded normally using  
 `$ docker load -i TAR_FILENAME.tar.gz`  
-This step is also recommended, pushing your docker image to hub doesn't require saving it locally. But we still recommend doing this because you can send this docker image to us directly in case you can not push it to the hub or we cannot pull it somehow. 
+This step is also recommended, pushing your docker image to the hub doesn't require saving it locally. But we still recommend doing this because you can send this docker image to us directly in case you cannot push it to the hub or we cannot pull it somehow. 
 8. Push your docker image to docker hub. Use the command  
 `$ docker push YOUR_DOCKER_IMAGE_NAME`  
 You can also push it using Docker Desktop GUI.  
