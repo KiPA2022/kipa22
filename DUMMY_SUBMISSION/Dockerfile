@@ -24,7 +24,7 @@ COPY --chown=predictor:predictor requirements.txt /opt/code/
 COPY --chown=predictor:predictor predict.py /opt/code/
 COPY --chown=predictor:predictor Demo_densebiasnet.py /opt/code/
 
-# Install packages specified in requirenmets.txt
+# Install packages specified in requirements.txt
 RUN python -m pip install --user -r requirements.txt
 
 # Entry
