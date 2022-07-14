@@ -4,7 +4,7 @@ In closed test, we require the participants to build a docker image of their alg
 
 We will pull your docker image and run it on our server, get your inference results and then evaluate them using 12 metrics (as same as the open test). 
 
-This dummy submission use shows how to build a docker image of a baseline model (DenseBiasNet). The `Dockerfile`, `predict.py` and `requirements.txt` are added to the directory, other files are copied from `../BASELINES/`. To get familiar with docker, you can download this directory, and run the command `$ docker build -t dummy .` to get a dummy docker image.  
+This dummy submission shows how to build a docker image of a baseline model (DenseBiasNet). The `Dockerfile`, `predict.py` and `requirements.txt` are added to the directory, other files are copied from `../BASELINES/`. To get familiar with docker, you can download this directory, and run the command `$ docker build -t dummy .` to get a dummy docker image.  
 
 ## Testing environment
 
@@ -30,7 +30,7 @@ This might help you do some sanity checks (if it runs successfully on your local
 `$ pip freeze > requirements.txt`   
 or   
 `$ conda list -e > requirements.txt`  
-This step is recommanded, you can also configure your environment in Dockerfile (in that case, delete the line `pip install -r requirements.txt`, use `RUN pip install ` ). 
+This step is recommanded, you can also configure your environment in Dockerfile (in that case, delete the line `pip install -r requirements.txt`, use `RUN pip install ...` ). 
 5. Edit [`Dockerfile`](Dockerfile) from line 18 to line 25, these lines instruct which files should be copied to the docker image. 
 6. Build your docker image using  
 `$ docker build -t YOUR_DOCKER_IMAGE_NAME .`  
