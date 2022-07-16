@@ -35,6 +35,7 @@ NOTE: This step is recommanded, you can also configure your environment manually
 5. Edit [`Dockerfile`](Dockerfile) from line 18 to line 25, these lines instruct which files should be copied to the docker image. So, replace them with the files that you need to copy. 
 6. Build your docker image using  
 `$ docker build -t YOUR_DOCKER_IMAGE_NAME .`  
+This process will last for dozens of minutes, depending on your network and the sizes of your environment packages.    
 Check if it runs normally on your local machine using  
 `$ docker run --rm --gpus all --runtime=nvidia --ipc=host -v LOCAL_INPUT:/input/:ro -v LOCAL_OUTPUT:/output/ YOUR_DOCKER_IMAGE_NAME`  
 Explanitions: 
