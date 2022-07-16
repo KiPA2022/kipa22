@@ -31,15 +31,16 @@ This might help you do some sanity checks (if this command runs successfully on 
 `$ pip freeze > requirements.txt`   
 or   
 `$ conda list -e > requirements.txt`  
-NOTE: This step is recommanded, you can also configure your environment in Dockerfile (in that case, delete the line `pip install -r requirements.txt`, use `RUN pip install ...` ). 
+NOTE: This step is recommanded, you can also configure your environment manually in Dockerfile (in that case, replace the line `pip install -r requirements.txt` with `RUN pip install ...` ). 
 5. Edit [`Dockerfile`](Dockerfile) from line 18 to line 25, these lines instruct which files should be copied to the docker image. So, replace them with the files that you need to copy. 
 6. Build your docker image using  
 `$ docker build -t YOUR_DOCKER_IMAGE_NAME .`  
 Check if it runs normally on your local machine using  
 `$ docker run --rm --gpus all --runtime=nvidia --ipc=host -v LOCAL_INPUT:/input/:ro -v LOCAL_OUTPUT:/output/ YOUR_DOCKER_IMAGE_NAME`  
 Explanitions: 
+    - This command creates a "container" for your image. The container runs on your local machine, which is "host". 
     - `--runtime=nvidia`: your docker image should have access to nVidia GPUs, so you might need to install [nvidia-docker2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker) preliminarily. 
-    - `-v LOCAL_INPUT:/input/:ro`: these flags map your host path to container path, `ro` means read-only. Your code reads images from `/input`, so the container path should be `/input`. Put some images (just for test) in some local path, and that is `LOCAL_INPUT`.   
+    - `-v LOCAL_INPUT:/input/:ro`: this flag maps your host path to container path, `ro` means read-only. Your code reads images from `/input`, so the container path should be `/input`. Put some images (for test) in some local path, and that is `LOCAL_INPUT`.   
 7. Save your docker image using  
 `$ docker save YOUR_DOCKER_IMAGE_NAME | gzip -c > TAR_FILENAME.tar.gz`  
 for some Windows users this might doesn't work, use these 2 commands instead:  
