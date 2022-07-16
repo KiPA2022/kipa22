@@ -1,4 +1,4 @@
-# Closed test submission guidelines
+# Docker submission guidelines
 
 In closed test, we require the participants to build a docker image of their algorithm, and upload it to docker hub. 
 
