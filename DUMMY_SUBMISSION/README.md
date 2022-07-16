@@ -9,7 +9,7 @@ This dummy submission shows how to build a docker image of a baseline model (Den
 ## Testing environment
 
 * nVidia GeForce RTX 3090 (**your packages should be compatible with CUDA capability of sm_86**)
-* CUDA 11.1 (Recommend torch>=1.10)
+* CUDA 11.1 (Recommend torch>=1.8)
 * 24GB GPU memory
 
 ## If you are familiar with docker...
@@ -61,4 +61,6 @@ After successful pushing, you will be able to find it on the docker hub website.
 
 ## Troubleshooting
 
-TODO
+1. Sometimes your docker building problems can be solved by running the following command:  
+`$ docker system prune --volumes`  
+This will clear the cache of your docker containers and images. 
