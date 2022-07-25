@@ -8,8 +8,8 @@ This dummy submission shows how to build a docker image of a baseline model (Den
 
 ## Testing environment
 
-* nVidia GeForce RTX 3090 (**your packages should be compatible with CUDA capability of sm_86**)
-* CUDA 11.1 (Recommend torch>=1.8)
+* nVidia GeForce RTX 3090 (**your packages should be compatible with CUDA capability of sm_86, see troubleshooting-2**)
+* CUDA 11.1 (**torch>=1.8 with the extra url like https://download.pytorch.org/whl/lts/1.8/cu111, is recommended**)
 * 24GB GPU memory
 
 ## If you are familiar with docker...
@@ -29,11 +29,11 @@ This might help you do some sanity checks (if this command runs successfully on 
 
 1. Download and install [docker](https://docs.docker.com/engine/install/) on your machine. You need to register for an account in advance if you don't have one. 
 
-2. Copy the [`Dockerfile`](Dockerfile) in this repository to your code's top directory. 
-<p align="center"><img width="100%" src="markdown_assets/2.png" /></p>
+2. Copy the [`Dockerfile`](Dockerfile) in this repository to your code's top directory.  
+![](markdown_assets/2.png)
 
-3. Make sure your algorithm reads images from `/input`, and predicted files (with the same filename as corresponding images) are written to `/output`. If necessary, create a new python script to run the inference only, like [`predict.py`](predict.py). 
-<p align="center"><img width="100%" src="markdown_assets/3.png" /></p>
+3. Make sure your algorithm reads images from `/input`, and predicted files (with the same filename as corresponding images) are written to `/output`. If necessary, create a new python script to run the inference only, like [`predict.py`](predict.py).  
+![](markdown_assets/3.png)
 
 4. Save your environment package list to a `requirements.txt` using   
 `$ pip freeze > requirements.txt`   
@@ -41,8 +41,8 @@ or
 `$ conda list -e > requirements.txt`  
 NOTE: This step is recommanded, you can also configure your environment manually in Dockerfile (in that case, replace the line `pip install -r requirements.txt` with `RUN pip install ...` ). 
 
-5. Edit [`Dockerfile`](Dockerfile) from line 18 to line 25, these lines instruct which files should be copied to the docker image. So, replace them with the files that you need to copy. 
-<p align="center"><img width="100%" src="markdown_assets/5.png" /></p>
+5. Edit [`Dockerfile`](Dockerfile) from line 18 to line 25, these lines instruct which files should be copied to the docker image. So, replace them with the files that you need to copy.  
+![](markdown_assets/5.png)
 
 6. Build your docker image using  
 `$ docker build -t YOUR_DOCKER_IMAGE_NAME .`  
@@ -52,9 +52,9 @@ Check if it runs normally on your local machine using
 Explanitions: 
     - This command creates a "container" for your image. The container runs on your local machine, which is "host". 
     - `--runtime=nvidia`: your docker image should have access to nVidia GPUs, so you might need to install [nvidia-docker2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker) preliminarily. 
-    - `-v LOCAL_INPUT:/input/:ro`: this flag maps your host path to container path, `ro` means read-only. Your code reads images from `/input`, so the container path should be `/input`. Put some images (for test) in some local path, and that is `LOCAL_INPUT`.  
-<p align="justify"><img width="100%" src="markdown_assets/6.1.png" /></p>
-<p align="center"><img width="100%" src="markdown_assets/6.2.png" /></p>
+    - `-v LOCAL_INPUT:/input/:ro`: this flag maps your host path to container path, `ro` means read-only. Your code reads images from `/input`, so the container path should be `/input`. Put some images (for test) in some local path, and that is `LOCAL_INPUT`.   
+![](markdown_assets/6.1.png)
+![](markdown_assets/6.2.png)
 
 7. Save your docker image using  
 `$ docker save YOUR_DOCKER_IMAGE_NAME | gzip -c > TAR_FILENAME.tar.gz`  
@@ -63,8 +63,8 @@ for some Windows users this might doesn't work, use these 2 commands instead:
 `$ gzip TAR_FILENAME.tar`  
 Check if it can be loaded normally using  
 `$ docker load -i TAR_FILENAME.tar.gz`  
-NOTE: This step is also recommended, pushing your docker image to the hub doesn't require saving it locally. But we still recommend doing this because you can send this docker image to us directly in case you cannot push it to the hub or we cannot pull it somehow. 
-<p align="center"><img width="100%" src="markdown_assets/7.png" /></p>
+NOTE: This step is also recommended, pushing your docker image to the hub doesn't require saving it locally. But we still recommend doing this because you can send this docker image to us directly in case you cannot push it to the hub or we cannot pull it somehow.  
+![](markdown_assets/7.png)
 
 8. Push your docker image to docker hub. Use the command  
 `$ docker push YOUR_DOCKER_IMAGE_NAME`  
@@ -72,8 +72,8 @@ You can also push it using Docker Desktop GUI.
 You might need to re-tag your docker image in advance (docker hub only accepts images with user name), using  
 `$ docker tag YOUR_DOCKER_IMAGE_NAME YOUR_USER_NAME/YOUR_DOCKER_IMAGE_NAME`  
 After successful pushing, you will be able to find it on the docker hub website. Check if you can pull it using  
-`$ docker pull YOUR_USER_NAME/YOUR_DOCKER_IMAGE_NAME`  
-<p align="center"><img width="100%" src="markdown_assets/8.2.png" /></p>
+`$ docker pull YOUR_USER_NAME/YOUR_DOCKER_IMAGE_NAME`   
+![](markdown_assets/8.2.png)
 
 9. Email us your tag (`YOUR_USER_NAME/YOUR_DOCKER_IMAGE_NAME`). 
 
@@ -82,3 +82,8 @@ After successful pushing, you will be able to find it on the docker hub website.
 1. Sometimes your docker building problems can be solved by running the following command:  
 `$ docker system prune --volumes`  
 This will clear the cache of your docker containers and images. 
+
+2. If your algorithm got the following problem reported from the organizers:  
+`...GeForce RTX 3090 with CUDA capability sm_86 is not compatible with the current PyTorch installation. ...`  
+This is probably caused by the mismatching between your torch version and our hardware platform. Try to upgrade your torch to a version supporting CUDA 11.1 (installing torch==1.8 with the extra-url https://download.pytorch.org/whl/lts/1.8/cu111 is enough, see [PyTorch](https://pytorch.org/) for reference.). Then build your docker image again.  
+![](markdown_assets/t2.png)
