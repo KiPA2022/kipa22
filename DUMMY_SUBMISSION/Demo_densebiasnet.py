@@ -81,13 +81,11 @@ def train_net(n_epochs=200,
         torch.save(net_S.state_dict(), '{0}/{1}_epoch_{2}.pth'.format(checkpoint_dir, model_name, n_epochs))
     return net_S
 
-def predict(model, save_path, img_path, model_name):
+def predict(model, save_path, img_path):
     print("Predict test data")
     model.eval()
     image_filenames = [x for x in os.listdir(img_path) if is_image3d_file(x)]
 
-    if not os.path.exists(join(save_path, model_name)):
-        os.makedirs(join(save_path, model_name))
     for imagename in image_filenames:
         print(imagename)
         image = sitk.ReadImage(join(img_path, imagename))
@@ -107,7 +105,7 @@ def predict(model, save_path, img_path, model_name):
         predict = np.argmax(predict[0], axis=0)
         predict = predict.astype(np.uint8)
         predict = sitk.GetImageFromArray(predict)
-        sitk.WriteImage(predict, join(save_path, model_name, imagename))
+        sitk.WriteImage(predict, join(save_path, imagename))
 
 def is_image3d_file(filename):
     return any(filename.endswith(extension) for extension in [".nii.gz"])
@@ -135,6 +133,6 @@ if __name__ == '__main__':
                       model_name=model_name,
                       train_dir=train_dir,
                       checkpoint_dir=checkpoint_dir)
-    predict(net_S, pred_dir, test_dir + '/image', model_name)
+    predict(net_S, pred_dir, test_dir + '/image')
     HDAVD(model_name, n_classes, pred_dir, test_dir + '/label')
     DSC(model_name, n_classes, pred_dir, test_dir + '/label')

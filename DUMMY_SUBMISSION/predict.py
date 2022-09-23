@@ -9,4 +9,4 @@ if __name__ == '__main__':
         is_train=False
     )
     # Read images from /input, write predictions to /output (leave model name to blank)
-    predict(net_S, save_path='/output', img_path='/input', model_name='')
+    predict(net_S, save_path='/output', img_path='/input')

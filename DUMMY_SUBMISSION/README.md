@@ -8,7 +8,7 @@ This dummy submission shows how to build a docker image of a baseline model (Den
 
 ## Testing environment
 
-* nVidia GeForce RTX 3090 (**your packages should be compatible with CUDA capability of sm_86, see troubleshooting-2**)
+* nVidia GeForce RTX 3090 (**your packages should be compatible with CUDA capability of sm_86, see [troubleshooting-2](#troubleshooting)**)
 * CUDA 11.1 (**torch>=1.8 with the extra url like https://download.pytorch.org/whl/lts/1.8/cu111, is recommended**)
 * 24GB GPU memory
 
